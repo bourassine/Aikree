@@ -1,0 +1,150 @@
+@import "../../responsive.scss";
+
+.searchBar {
+  position: relative; /* Position relative pour que les pseudo-éléments soient positionnés correctement */
+  
+  /* Styles for the "type" section of the search bar */
+  .type {
+    button {
+      padding: 16px 36px;
+      border: 1px solid #999;
+      border-bottom: none;
+      cursor: pointer;
+      background-color: white;
+      text-transform: capitalize;
+      font-size: 21px;
+      transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+
+      /* Styles for the active button */
+      &.active {
+        background-color: black;
+        color: white;
+      }
+
+      /* Styles for the first and last buttons */
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-right: none;
+      }
+
+      &:last-child {
+        border-top-right-radius: 5px;
+        border-left: none;
+      }
+    }
+  }
+
+  /* Styles for the search bar form */
+  form {
+    border: 1px solid #999;
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    gap: 5px;
+
+    /* Responsive styles */
+    @include sm {
+      flex-direction: column;
+      border: none;
+    }
+
+    input {
+      border: none;
+      padding: 0px 10px;
+      width: 200px;
+      font-size: 21px;
+
+      /* Responsive styles */
+      @include lg {
+        padding: 0px 5px;
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: 140px;
+        }
+      }
+
+      @include md {
+        width: 200px;
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: 200px;
+        }
+      }
+
+      @include sm {
+        width: auto;
+        &:nth-child(2),
+        &:nth-child(3) {
+          width: auto;
+        }
+        padding: 20px;
+        border: 1px solid #999;
+      }
+    }
+
+    /* Styles for the search button */
+    a {
+      flex: 1;
+      background-color: #85aff6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        border: none;
+        cursor: pointer;
+        background-color: #85aff6;
+
+        /* Responsive styles */
+        @include sm {
+          padding: 10px;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      /* Animation */
+      &:hover {
+        animation: bounce 0.5s; /* Apply bounce animation on hover */
+      }
+
+      @keyframes bounce {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  /* Pseudo-éléments pour le cadre transparent */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; /* Assurer que ces pseudo-éléments ne captent pas les événements de souris */
+    z-index: -1; /* Les placer derrière le contenu principal */
+  }
+
+  /* Dégradé transparent pour le pseudo-élément avant */
+  &::before {
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)); /* Modifier les valeurs RGBA selon vos préférences */
+  }
+
+  /* Dégradé transparent pour le pseudo-élément après */
+  &::after {
+    background: linear-gradient(to top left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)); /* Modifier les valeurs RGBA selon vos préférences */
+  }
+}

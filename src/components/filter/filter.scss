@@ -1,0 +1,68 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h1 {
+    font-weight: 300;
+    font-size: 24px;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    label {
+      font-size: 10px;
+    }
+
+    input,
+    select {
+      width: 100px;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+  }
+
+  .top {
+    input {
+      width: 100%;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .bottom button {
+  //  min-width: 120px; /* Ajuster la largeur minimale */
+    padding: 12px 20px; /* Ajuster le rembourrage pour un aspect plus spacieux */
+    border: 2px solid #fece51; /* Ajouter une bordure */
+    border-radius: 10px; /* Ajouter une bordure arrondie */
+    background-color:#fece51; /* Utiliser un fond transparent */
+    color: #fece51; /* Couleur de texte */
+    font-size: 16px; /* Taille de la police */
+    font-weight: bold; /* Gras pour le texte */
+    text-transform: uppercase; /* Mettre le texte en majuscules */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Ajouter une transition douce */
+  }
+  
+  .bottom button:hover {
+    border: 2px solid #000;
+    background-color: #cedffb; /* Couleur de fond au survol */
+    color: #fff; /* Couleur de texte au survol */
+  }
+  
+  .bottom button img {
+    width: 24px;
+    height: 24px;
+  }
+  
+}
